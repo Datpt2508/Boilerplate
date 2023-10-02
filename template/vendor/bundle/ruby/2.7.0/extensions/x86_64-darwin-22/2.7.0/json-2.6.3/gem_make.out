@@ -1,0 +1,16 @@
+current directory: /Volumes/Data/AI_Generator/vendor/bundle/ruby/2.7.0/gems/json-2.6.3/ext/json
+/Users/datpt/.rvm/rubies/ruby-2.7.6/bin/ruby -I /Users/datpt/.rvm/rubies/ruby-2.7.6/lib/ruby/site_ruby/2.7.0 extconf.rb
+creating Makefile
+
+current directory: /Volumes/Data/AI_Generator/vendor/bundle/ruby/2.7.0/gems/json-2.6.3/ext/json
+make DESTDIR\= sitearchdir\=./.gem.20230620-5726-m0tnmp sitelibdir\=./.gem.20230620-5726-m0tnmp clean
+
+current directory: /Volumes/Data/AI_Generator/vendor/bundle/ruby/2.7.0/gems/json-2.6.3/ext/json
+make DESTDIR\= sitearchdir\=./.gem.20230620-5726-m0tnmp sitelibdir\=./.gem.20230620-5726-m0tnmp
+make: Nothing to be done for `all'.
+
+current directory: /Volumes/Data/AI_Generator/vendor/bundle/ruby/2.7.0/gems/json-2.6.3/ext/json
+make DESTDIR\= sitearchdir\=./.gem.20230620-5726-m0tnmp sitelibdir\=./.gem.20230620-5726-m0tnmp install
+
+current directory: /Volumes/Data/AI_Generator/vendor/bundle/ruby/2.7.0/gems/json-2.6.3/ext/json
+make DESTDIR\= sitearchdir\=./.gem.20230620-5726-m0tnmp sitelibdir\=./.gem.20230620-5726-m0tnmp clean
