@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "420101489707",
+    "project_id": "phone-tracker-triple",
+    "storage_bucket": "phone-tracker-triple.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:420101489707:android:7e608f7dac4dd266cfd66e",
+        "android_client_info": {
+          "package_name": "com.phonetracker.gpslocation.phonelocation"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqe3Uc_JST-zrirpcp_1H1JTLEWdV96fE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

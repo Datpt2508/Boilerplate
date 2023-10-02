@@ -1,0 +1,11 @@
+{
+  "name": "Phone_Tracker",
+  "displayName": "Phone_Tracker",
+  "react-native-google-mobile-ads": {
+    "android_app_id": "ca-app-pub-4584260126367940~4278584021",
+    "ios_app_id": "ca-app-pub-3940256099942544~3347511713"
+  },
+  "ios": {
+    "useFrameworks": "static"
+  }
+}

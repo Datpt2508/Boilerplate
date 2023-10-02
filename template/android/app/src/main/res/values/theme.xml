@@ -1,0 +1,8 @@
+<resources>
+ <style name="AdTheme" parent="Theme.AppCompat.DayNight.NoActionBar" >
+    <item name="android:background">#000000</item>
+    <item name="android:windowBackground">#000000</item>
+    <item name="android:windowExitAnimation">@null</item>
+    <item name="android:windowEnterAnimation">@null</item>
+</style>
+</resources>
