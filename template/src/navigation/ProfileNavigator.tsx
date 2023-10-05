@@ -5,34 +5,33 @@ import {
 } from '@react-navigation/stack';
 import React from 'react';
 
-import ProfilePage from '~/screens/ProfilePage/ProfilePage';
+import SettingPage from '~/screens/SettingPage/SettingPage';
 
 const StackNavigator = createStackNavigator<ProfileNavigatorProps>();
 const screenOptions = { headerShown: false };
 
 export type ProfileNavigatorProps = {
-  ProfilePage: { isProfile: boolean };
+  SettingPage: { isProfile: boolean };
 };
 
-export type ProfilePageNavProps = StackNavigationProp<
+export type SettingPageNavProps = StackNavigationProp<
   ProfileNavigatorProps,
-  'ProfilePage'
+  'SettingPage'
 >;
 
-export type ProfilePageRouteProps = RouteProp<
+export type SettingPageRouteProps = RouteProp<
   ProfileNavigatorProps,
-  'ProfilePage'
+  'SettingPage'
 >;
 
 const ProfileNavigator = (): JSX.Element => {
   return (
     <StackNavigator.Navigator
       screenOptions={screenOptions}
-      initialRouteName='ProfilePage'>
-      {/* <StackNavigator.Screen name='TestPage' component={TestPage} /> */}
+      initialRouteName='SettingPage'>
       <StackNavigator.Screen
-        name='ProfilePage'
-        component={ProfilePage}
+        name='SettingPage'
+        component={SettingPage}
         options={{ gestureEnabled: false }}
       />
     </StackNavigator.Navigator>

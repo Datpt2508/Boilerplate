@@ -67,6 +67,15 @@ const OnboardingPage = (): JSX.Element => {
     }, []),
   );
 
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      navigation.navigate('BottomTabNavigator', {
+        screen: 'HomeNavigator',
+      });
+    }, 2000);
+
+    return () => clearTimeout(timeoutId);
+  }, [navigation]);
   const styleContainer = useMemo<StyleProp<ViewStyle>>(
     () => [
       {

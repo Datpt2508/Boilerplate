@@ -5,7 +5,6 @@ import {
 } from '@react-navigation/stack';
 import React from 'react';
 
-import FriendTrackingPage from '~/screens/HomePage/FriendTrackingPage';
 import HomePage from '~/screens/HomePage/HomePage';
 
 const StackNavigator = createStackNavigator<HomeNavigatorProps>();
@@ -30,11 +29,6 @@ const HomeNavigator = (): JSX.Element => {
       <StackNavigator.Screen
         name='HomePage'
         component={HomePage}
-        options={{ gestureEnabled: false }}
-      />
-      <StackNavigator.Screen
-        name='FriendTrackingPage'
-        component={FriendTrackingPage}
         options={{ gestureEnabled: false }}
       />
     </StackNavigator.Navigator>

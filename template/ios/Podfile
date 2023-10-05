@@ -26,6 +26,7 @@ abstract_target 'Phone_TrackerCommonPods' do
   config = use_native_modules!
   use_frameworks! :linkage => :static
  
+  pod 'RNPermissions', :path => '../node_modules/react-native-permissions'
   permissions_path = '../node_modules/react-native-permissions/ios'
   pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
   pod 'Permission-PhotoLibrary', :path => "#{permissions_path}/PhotoLibrary"
