@@ -29,22 +29,15 @@ abstract_target 'Phone_TrackerCommonPods' do
   permissions_path = '../node_modules/react-native-permissions/ios'
   pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
   pod 'Permission-PhotoLibrary', :path => "#{permissions_path}/PhotoLibrary"
-  pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
-  pod 'Permission-LocationAccuracy', :path => "#{permissions_path}/LocationAccuracy"
-  pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
-  pod 'react-native-geolocation-service', path: '../node_modules/react-native-geolocation-service'
-
+  
   pod 'RNFS', :path => '../node_modules/react-native-fs'
   pod 'Firebase', :modular_headers => true
   pod 'FirebaseCore', :modular_headers => true
   pod 'FirebaseCoreInternal', :modular_headers => true
   pod 'GoogleUtilities', :modular_headers => true
   $RNFirebaseAsStaticFramework = true
-  # React Native Maps dependencies
-  rn_maps_path = '../node_modules/react-native-maps'
-  pod 'react-native-google-maps', :path => rn_maps_path
-  pod 'GoogleMaps', '7.4.0' 
-  pod 'Google-Maps-iOS-Utils', '4.1.0' 
+
+  
   
 
   # Flags change depending on the env values.

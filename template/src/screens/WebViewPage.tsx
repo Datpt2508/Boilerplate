@@ -1,6 +1,6 @@
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import React, { useRef, useState } from 'react';
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { Dimensions, SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import { IconButton, ProgressBar } from 'react-native-paper';
 import WebView from 'react-native-webview';
 
@@ -10,24 +10,29 @@ import useScale from '~/hooks/useScale';
 import IconClose from '~/resources/Icons/IconClose';
 import IconRefresh from '~/resources/Icons/IconRefresh';
 
-import { RootNavigatorNavProps } from '~/navigation/RootNavigator';
+import {
+  RootNavigatorNavProps,
+  RootRouteProps,
+} from '~/navigation/RootNavigator';
 
-const INJECTEDJAVASCRIPT = `const meta = document.createElement('meta'); meta.setAttribute('content', 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0'); meta.setAttribute('name', 'viewport'); document.getElementsByTagName('head')[0].appendChild(meta); `;
+const INJECTED_JAVASCRIPT = `const meta = document.createElement('meta'); meta.setAttribute('content', 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0'); meta.setAttribute('name', 'viewport'); document.getElementsByTagName('head')[0].appendChild(meta); `;
+const SCREEN_WIDTH = Dimensions.get('window').width;
+const SCREEN_HEIGHT = Dimensions.get('window').height;
 
-const WebViewPage = ({ route }): JSX.Element => {
-  const [loading, setLoading] = useState<boolean>(true);
-
+const WebViewPage = (): JSX.Element => {
   const webViewRef = useRef<WebView | null>(null);
+  const navigation = useNavigation<RootNavigatorNavProps>();
+  const { vScale } = useScale();
+  const topInsets = useTopInset();
+  const route = useRoute<RootRouteProps<'WebViewPage'>>();
+
   const uri = route?.params?.uri;
 
-  const { vScale } = useScale();
+  const [loading, setLoading] = useState<boolean>(true);
 
   const onRefreshPress = (): void => webViewRef.current?.reload?.();
-
   const onLoadStart = (): void => setLoading(true);
   const onLoadEnd = (): void => setLoading(false);
-
-  const navigation = useNavigation<RootNavigatorNavProps>();
 
   const onBackPress = () => {
     navigation.goBack();
@@ -43,7 +48,7 @@ const WebViewPage = ({ route }): JSX.Element => {
             justifyContent: 'space-between',
             alignItems: 'center',
             backgroundColor: '#FFFFFF',
-            // paddingTop: topInsets,
+            paddingTop: topInsets,
           }}>
           <View style={{}}>
             <IconButton
@@ -81,7 +86,7 @@ const WebViewPage = ({ route }): JSX.Element => {
             source={{
               uri: uri,
             }}
-            injectedJavaScript={INJECTEDJAVASCRIPT}
+            injectedJavaScript={INJECTED_JAVASCRIPT}
             // onNavigationStateChange={onNavigationStateChange}
             onLoadStart={onLoadStart}
             onLoadEnd={onLoadEnd}

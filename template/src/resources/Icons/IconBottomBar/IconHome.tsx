@@ -1,27 +1,23 @@
 import * as React from 'react';
 import Svg, { Path } from 'react-native-svg';
 
-import { InjectedProps, withIcon } from '~/resources/Icons/IconDecorator';
-
-const IconHome = ({
-  width,
-  height,
-  fill,
-  style,
-}: InjectedProps): JSX.Element => {
+function IconHome(props) {
   return (
     <Svg
-      width={width}
-      height={height}
-      style={style}
-      fill={fill}
-      viewBox='0 0 24 24'>
+      width={22}
+      height={22}
+      viewBox='0 0 22 22'
+      fill='none'
+      xmlns='http://www.w3.org/2000/svg'
+      {...props}>
       <Path
-        d='M12.46 1.66a.757.757 0 00-.933 0L.75 10.065l.932 1.178L3 10.216V19.5A1.503 1.503 0 004.5 21h15a1.503 1.503 0 001.5-1.5v-9.277l1.318 1.027.932-1.179-10.79-8.41zM13.5 19.5h-3v-6h3v6zm1.5 0v-6a1.502 1.502 0 00-1.5-1.5h-3A1.502 1.502 0 009 13.5v6H4.5V9.046L12 3.204l7.5 5.85V19.5H15z'
-        fill='#fff'
+        fillRule='evenodd'
+        clipRule='evenodd'
+        d='M13.908 15.885H8.093a.75.75 0 010-1.5h5.815a.75.75 0 010 1.5zM18.25 5.158c-.363-.32-.776-.682-1.268-1.137-.223-.18-.467-.386-.726-.604C14.795 2.186 12.795.5 10.972.5 9.17.5 7.3 2.092 5.796 3.371c-.278.236-.538.458-.803.673-.466.432-.879.795-1.243 1.116C1.363 7.261.914 7.812.914 12.713.914 21.5 3.455 21.5 11 21.5c7.544 0 10.086 0 10.086-8.787 0-4.902-.449-5.453-2.837-7.555z'
+        fill='#777C7E'
       />
     </Svg>
   );
-};
+}
 
-export default withIcon(IconHome);
+export default IconHome;

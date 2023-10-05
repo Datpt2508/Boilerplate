@@ -21,9 +21,6 @@
 
     <!--Khai báo quyền truy cập cho Location-->
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <!-- <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" /> -->
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <uses-permission android:name="android.permission.READ_CONTACTS" />
 
@@ -62,9 +59,7 @@
         android:theme="@style/AdTheme"
         tools:replace="android:theme"
         />
-       <meta-data
-        android:name="com.google.android.gms.ads.APPLICATION_ID"
-        android:value="ca-app-pub-4584260126367940~4278584021"/>
+       
     </application>
    
 </manifest>

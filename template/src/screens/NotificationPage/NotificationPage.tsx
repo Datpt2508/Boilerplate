@@ -27,7 +27,7 @@ import { RootNavigatorNavProps } from '~/navigation/RootNavigator';
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const SCREEN_HEIGHT = Dimensions.get('window').height;
 
-const SettingPage = (): JSX.Element => {
+const NotificationPage = (): JSX.Element => {
   const { t } = useTranslation();
   const theme = useAppTheme();
   const navigation = useNavigation<RootNavigatorNavProps>();
@@ -86,12 +86,12 @@ const SettingPage = (): JSX.Element => {
           textAlign: 'center',
           fontFamily: 'SFProDisplay-Medium',
         }}>
-        {t('SettingPage')}
+        {t('NotificationPage')}
       </Text>
     </SafeAreaView>
   );
 };
 
-export default SettingPage;
+export default NotificationPage;
 
 const styles = StyleSheet.create({});

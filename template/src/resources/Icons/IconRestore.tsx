@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Svg, { G, LinearGradient, Path, Stop } from 'react-native-svg';
 
-import { InjectedProps, withIcon } from '~/resources/Icons/IconDecorator';
+import { InjectedProps, withIcon } from '~/libs/IconDecorator';
 
 const IconRestore = ({
   width,

@@ -173,7 +173,7 @@ const ToastContextProvider = memo<PropsWithChildren>(
           style={toastStyles}>
           <View style={componentToastStyle}>
             {iconToast ? iconToast : null}
-            <Text color={theme.colors.white} style={styles.styleMessage}>
+            <Text style={[styles.styleMessage, { color: theme.colors.white }]}>
               {message}
             </Text>
           </View>

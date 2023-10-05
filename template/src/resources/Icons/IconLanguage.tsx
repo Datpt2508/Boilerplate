@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Svg, { G, Mask, Path } from 'react-native-svg';
 
-import { InjectedProps, withIcon } from '~/resources/Icons/IconDecorator';
+import { InjectedProps, withIcon } from '~/libs/IconDecorator';
 
 const IconLanguage = ({
   width,

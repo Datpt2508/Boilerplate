@@ -10,7 +10,7 @@ import Svg, {
   Use,
 } from 'react-native-svg';
 
-import { InjectedProps, withIcon } from '~/resources/Icons/IconDecorator';
+import { InjectedProps, withIcon } from '~/libs/IconDecorator';
 
 const IconLogo = ({ width, height, style }: InjectedProps): JSX.Element => {
   return (

@@ -8,46 +8,40 @@ import {
   RouteProp,
 } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
+import LottieView from 'lottie-react-native';
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Platform, View } from 'react-native';
-import {
-  BannerAd,
-  BannerAdSize, // useInterstitialAd,
-  GAMBannerAd,
-} from 'react-native-google-mobile-ads';
 
 import { useBottomInset } from '~/hooks/useInset';
 import usePreferenceContext from '~/hooks/usePreferenceContext';
 
+import getImage from '~/libs/getImage';
+
+import IconHome from '~/resources/Icons/IconBottomBar/IconHome';
 import IconLocated from '~/resources/Icons/IconBottomBar/IconLocated';
-import IconLocatedActive from '~/resources/Icons/IconBottomBar/IconLocatedActive';
-import IconLocator from '~/resources/Icons/IconBottomBar/IconLocator';
-import IconLocatorActive from '~/resources/Icons/IconBottomBar/IconLocatorActive';
+import IconMusic from '~/resources/Icons/IconBottomBar/IconMusic';
 import IconProfile from '~/resources/Icons/IconBottomBar/IconProfile';
-import IconProfileActive from '~/resources/Icons/IconBottomBar/IconProfileActive';
-import IconZoneAlert from '~/resources/Icons/IconBottomBar/IconZoneAlert';
-import IconZoneAlertActive from '~/resources/Icons/IconBottomBar/IconZoneAlertActive';
 import { useAppTheme } from '~/resources/theme';
 
 import { ANDROID_BANNER, IOS_BANNER } from '@env';
 import TextGradient from '~/base/TextGradient';
 
 import HomeNavigator, { HomeNavigatorProps } from './HomeNavigator';
-import LocatedNavigator, { LocatedNavigatorProps } from './LocatedNavigator';
+import LibraryNavigator, { LibraryNavigatorProps } from './LibraryNavigator';
+import NotificationNavigator, {
+  NotificationNavigatorProps,
+} from './NotificationNavigator';
 import ProfileNavigator, { ProfileNavigatorProps } from './ProfileNavigator';
 import { RootNavigatorProps } from './RootNavigator';
-import ZoneAlertNavigator, {
-  ZoneAlertNavigatorProps,
-} from './ZoneAlertNavigator';
 
 export type BottomTabNavigatorProps = {
   HomeNavigator: NavigatorScreenParams<HomeNavigatorProps> | undefined;
-  ProfileNavigator: NavigatorScreenParams<ProfileNavigatorProps> | undefined;
-  LocatedNavigator: NavigatorScreenParams<LocatedNavigatorProps> | undefined;
-  ZoneAlertNavigator:
-    | NavigatorScreenParams<ZoneAlertNavigatorProps>
+  LibraryNavigator: NavigatorScreenParams<LibraryNavigatorProps> | undefined;
+  NotificationNavigator:
+    | NavigatorScreenParams<NotificationNavigatorProps>
     | undefined;
+  ProfileNavigator: NavigatorScreenParams<ProfileNavigatorProps> | undefined;
 };
 
 export type BottomTabNavigatorRouteProps = RouteProp<BottomTabNavigatorProps>;
@@ -67,6 +61,16 @@ export type HomeNavigatorRouteProps = RouteProp<
   'HomeNavigator'
 >;
 
+export type LibraryNavigatorNavProps = CompositeNavigationProp<
+  BottomTabNavigationProp<BottomTabNavigatorProps, 'LibraryNavigator'>,
+  StackNavigationProp<RootNavigatorProps>
+>;
+
+export type LibraryNavigatorRouteProps = RouteProp<
+  BottomTabNavigatorProps,
+  'LibraryNavigator'
+>;
+
 export type ProfileNavigatorNavProps = CompositeNavigationProp<
   BottomTabNavigationProp<BottomTabNavigatorProps, 'ProfileNavigator'>,
   StackNavigationProp<RootNavigatorProps>
@@ -77,14 +81,14 @@ export type ProfileNavigatorRouteProps = RouteProp<
   'ProfileNavigator'
 >;
 
-export type LocatedNavigatorNavProps = CompositeNavigationProp<
-  BottomTabNavigationProp<BottomTabNavigatorProps, 'LocatedNavigator'>,
+export type NotificationNavigatorNavProps = CompositeNavigationProp<
+  BottomTabNavigationProp<BottomTabNavigatorProps, 'NotificationNavigator'>,
   StackNavigationProp<RootNavigatorProps>
 >;
 
-export type LocatedNavigatorRouteProps = RouteProp<
+export type NotificationNavigatorRouteProps = RouteProp<
   BottomTabNavigatorProps,
-  'LocatedNavigator'
+  'NotificationNavigator'
 >;
 
 const ID_ADS_BANNER = Platform?.OS === 'ios' ? IOS_BANNER : ANDROID_BANNER;
@@ -94,27 +98,9 @@ const BottomTabNavigator = (): JSX.Element => {
   const Tab = createBottomTabNavigator();
   const { t } = useTranslation();
   const bottomInset = useBottomInset();
-  const adsMobState = usePreferenceContext()?.result?.adsMobState;
-
-  const [isLoadingAds, setIsLoadingAds] = useState(false);
-  const isRemoteBannerAds = adsMobState?.Banner;
 
   return (
     <View style={{ flex: 1 }}>
-      {isRemoteBannerAds && (
-        <View style={{ position: 'absolute', zIndex: -22 }}>
-          <GAMBannerAd
-            sizes={[BannerAdSize.ANCHORED_ADAPTIVE_BANNER]}
-            requestOptions={{
-              requestNonPersonalizedAdsOnly: true,
-            }}
-            onAdFailedToLoad={() => setIsLoadingAds(false)}
-            onAdLoaded={() => setIsLoadingAds(true)}
-            unitId={ID_ADS_BANNER}
-          />
-        </View>
-      )}
-
       <Tab.Navigator
         // tabBar={(props) => <CustomTabBar {...props} />}
         screenOptions={{
@@ -141,40 +127,55 @@ const BottomTabNavigator = (): JSX.Element => {
             tabBarLabel: t('Locator'),
             tabBarIcon: ({ focused }) =>
               focused ? (
-                <IconLocatorActive color={theme.colors.iconActive} />
+                <LottieView
+                  source={getImage('homeAnimate')}
+                  autoPlay
+                  loop
+                  style={{ height: 40, width: 40 }}
+                />
               ) : (
-                <IconLocator />
+                <IconHome />
               ),
           }}
         />
 
         <Tab.Screen
-          name='LocatedNavigator'
-          component={LocatedNavigator}
+          name='LibraryNavigator'
+          component={LibraryNavigator}
           options={{
-            tabBarLabel: t('Be Located'),
+            tabBarLabel: t('Library'),
             tabBarIcon: ({ focused }) =>
               focused ? (
-                <IconLocatedActive color={theme.colors.iconActive} />
+                <LottieView
+                  source={getImage('moon')}
+                  autoPlay
+                  loop
+                  style={{ height: 30, width: 30 }}
+                />
               ) : (
                 <IconLocated />
               ),
           }}
         />
 
-        {/* <Tab.Screen
-        name='ZoneAlertNavigator'
-        component={ZoneAlertNavigator}
-        options={{
-          tabBarLabel: t('Zone Alert'),
-          tabBarIcon: ({ focused }) =>
-            focused ? (
-              <IconZoneAlertActive color={theme.colors.iconActive} />
-            ) : (
-              <IconZoneAlert />
-            ),
-        }}
-      /> */}
+        <Tab.Screen
+          name='NotificationNavigator'
+          component={NotificationNavigator}
+          options={{
+            tabBarLabel: t('Notification'),
+            tabBarIcon: ({ focused }) =>
+              focused ? (
+                <LottieView
+                  source={getImage('moon2')}
+                  autoPlay
+                  // loop
+                  style={{ height: 32, width: 32 }}
+                />
+              ) : (
+                <IconMusic />
+              ),
+          }}
+        />
 
         <Tab.Screen
           name='ProfileNavigator'
@@ -183,26 +184,18 @@ const BottomTabNavigator = (): JSX.Element => {
             tabBarLabel: t('Profile'),
             tabBarIcon: ({ focused }) =>
               focused ? (
-                <IconProfileActive color={theme.colors.iconActive} />
+                <LottieView
+                  source={getImage('profile')}
+                  autoPlay
+                  loop
+                  style={{ height: 30, width: 30 }}
+                />
               ) : (
                 <IconProfile />
               ),
           }}
         />
       </Tab.Navigator>
-      {isRemoteBannerAds && isLoadingAds && (
-        <View style={{ flexShrink: 1 }}>
-          <GAMBannerAd
-            sizes={[BannerAdSize.ANCHORED_ADAPTIVE_BANNER]}
-            requestOptions={{
-              requestNonPersonalizedAdsOnly: true,
-            }}
-            onAdFailedToLoad={() => setIsLoadingAds(false)}
-            unitId={ID_ADS_BANNER}
-            // unitId={'ca-app-pub-4584260126367940/2456605588'}
-          />
-        </View>
-      )}
     </View>
   );
 };

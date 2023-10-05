@@ -3,18 +3,15 @@ import {
   Pressable,
   StyleProp,
   StyleSheet,
-  TouchableOpacity,
+  Text,
+  TextStyle,
   ViewStyle,
 } from 'react-native';
 import { RadioButton as DefaultRadioButton } from 'react-native-paper';
 
-import { H3 } from './Typography';
-
-// import { Paragraph } from '~/base/Typography';
-
 type SelectorProps = {
   value: string;
-  label: string;
+  label?: string;
   style?: StyleProp<ViewStyle>;
   state: boolean;
   onPress?: (value: string) => void;
@@ -34,6 +31,11 @@ const RadioButton = memo(
       [style],
     );
 
+    const labelStyle = useMemo<StyleProp<TextStyle>>(
+      () => [styles.tag, style],
+      [style],
+    );
+
     return (
       <Pressable onPress={onTouchablePress} style={customStyle}>
         <DefaultRadioButton.Android
@@ -44,11 +46,12 @@ const RadioButton = memo(
           onPress={onTouchablePress}
           {...props}
         />
-        <H3 style={styles.tag}>{label}</H3>
+        <Text style={labelStyle}>{label}</Text>
       </Pressable>
     );
   },
 );
+
 const styles = StyleSheet.create({
   itemContainer: {
     flexDirection: 'row',
@@ -62,4 +65,5 @@ const styles = StyleSheet.create({
     paddingLeft: 4,
   },
 });
+
 export default RadioButton;
