@@ -529,6 +529,7 @@
 				F97BDA252ABD9ACD000CC8DA /* Bundle React Native code and images */,
 				F97BDA262ABD9ACD000CC8DA /* [CP] Embed Pods Frameworks */,
 				F97BDA272ABD9ACD000CC8DA /* [CP] Copy Pods Resources */,
+				F9BDF5EA2ACA7AB900D31943 /* Setup Firebase Environment GoogleService-Info.plist */,
 			);
 			buildRules = (
 			);
@@ -938,6 +939,24 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Phone_TrackerCommonPods-Phone_Tracker_Dev/Pods-Phone_TrackerCommonPods-Phone_Tracker_Dev-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		F9BDF5EA2ACA7AB900D31943 /* Setup Firebase Environment GoogleService-Info.plist */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Setup Firebase Environment GoogleService-Info.plist";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "# Name of the resource to copy\nINFO_PLIST_FILE=GoogleService-Info.plist\n\n# Get references to debug and release versions of the plist file\nDEV_INFO_PLIST_FILE=${PROJECT_DIR}/Firebase/dev/${INFO_PLIST_FILE}\nRELEASE_INFO_PLIST_FILE=${PROJECT_DIR}/Firebase/release/${INFO_PLIST_FILE}\n\n# Make sure the DEV version exists\necho \"Looking for ${INFO_PLIST_FILE} in ${DEV_INFO_PLIST_FILE}\"\nif [ ! -f $DEV_INFO_PLIST_FILE ] ; then\n    echo \"File GoogleService-Info.plist (DEV) not found.\"\n    exit 1\nfi\n\n# Make sure the release version exists\necho \"Looking for ${INFO_PLIST_FILE} in ${RELEASE_INFO_PLIST_FILE}\"\nif [ ! -f $RELEASE_INFO_PLIST_FILE ] ; then\n    echo \"File GoogleService-Info.plist (release) not found.\"\n    exit 1\nfi\n\n# Get a reference to the destination location for the plist file\nPLIST_DESTINATION=${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app\necho \"Copying ${INFO_PLIST_FILE} to final destination: ${PLIST_DESTINATION}\"\n\n# Copy the appropiate file to app bundle\nif [ \"${CONFIGURATION}\" == \"dev\" ] ; then\n    echo \"File ${DEV_INFO_PLIST_FILE} copied\"\n    cp \"${DEV_INFO_PLIST_FILE}\" \"${PLIST_DESTINATION}\"\nelse\n    echo \"File ${RELEASE_INFO_PLIST_FILE} copied\"\n    cp \"${RELEASE_INFO_PLIST_FILE}\" \"${PLIST_DESTINATION}\"\nfi\n";
+		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1084,7 +1103,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.triple.phone-tracker";
+				PRODUCT_BUNDLE_IDENTIFIER = com.phonetracker.gpslocation.phonelocation;
 				PRODUCT_NAME = Phone_Tracker;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -1127,7 +1146,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.triple.phone-tracker";
+				PRODUCT_BUNDLE_IDENTIFIER = com.phonetracker.gpslocation.phonelocation;
 				PRODUCT_NAME = Phone_Tracker;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1350,7 +1369,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.triple.phone-tracker";
+				PRODUCT_BUNDLE_IDENTIFIER = com.phonetracker.gpslocation.phonelocation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";

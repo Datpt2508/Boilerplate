@@ -22,6 +22,8 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>GADApplicationIdentifier</key>
+	<string>ca-app-pub-3940256099942544~1458002511</string>
 	<key>LSApplicationCategoryType</key>
 	<string></string>
 	<key>LSApplicationQueriesSchemes</key>
@@ -46,8 +48,6 @@
 			</dict>
 		</dict>
 	</dict>
-	<key>GADApplicationIdentifier</key>
-	<string>ca-app-pub-3940256099942544~1458002511</string>
 	<key>NSCameraUsageDescription</key>
 	<string>App uses this to take photos for your profile and trends.</string>
 	<key>NSContactsUsageDescription</key>
@@ -58,8 +58,6 @@
 	<string>Location Permission</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Location Permission</string>
-	<!-- <key>NSLocationUsageDescription</key>
-	<string>GPS data is required to...</string> -->
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>The app needs to use location</string>
 	<key>NSPhotLibraryUsageDescription</key>

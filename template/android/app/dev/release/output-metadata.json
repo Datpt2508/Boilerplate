@@ -4,7 +4,7 @@
     "type": "APK",
     "kind": "Directory"
   },
-  "applicationId": "com.phonetracker.gpslocation.phonelocation",
+  "applicationId": "com.phonetracker.gpslocation.phonelocation.dev",
   "variantName": "devRelease",
   "elements": [
     {

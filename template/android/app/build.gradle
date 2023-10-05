@@ -4,6 +4,27 @@ apply plugin: 'com.google.gms.google-services'
 
 import com.android.build.OutputFile
 
+project.ext.envConfigFiles = [
+    devDebug  : ".env.dev",
+    devRelease: ".env.dev",
+    prodDebug  : ".env",
+    prodRelease: ".env",
+    anothercustombuild: ".env",
+]
+
+project.ext.react = [
+    // devDisabledIndevDebug: true,
+    // devDisabledIndevRelease: false,
+    // devDisabledInprodRelease: true,
+    // bundleIndevDebug: true,
+    // bundleIndevRelease: false,
+    // bundleInprodRelease: true,
+    bundleInDebug: true,
+    enableHermes: true  
+]
+
+apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
+
 /**
  * This is the configuration block to customize your React Native Android app.
  * By default you don't need to apply any configuration, just uncomment the lines you need.
@@ -52,25 +73,6 @@ react {
     //   The list of flags to pass to the Hermes compiler. By default is "-O", "-output-source-map"
     // hermesFlags = ["-O", "-output-source-map"]
 }
-project.ext.envConfigFiles = [
-    devDebug  : ".env.dev",
-    devRelease: ".env.dev",
-    prodDebug  : ".env",
-    prodRelease: ".env",
-    anothercustombuild: ".env",
-]
-
-project.ext.react = [
-    devDisabledInBetaDebug: true,
-    devDisabledInBetaRelease: true,
-    devDisabledInProdRelease: true,
-    bundleInBetaDebug: true,
-    bundleInBetaRelease: true,
-    bundleInProdRelease: true,
-    enableHermes: true  // clean and rebuild if changing
-]
-
-apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
 
 /**
  * Set this to true to create four separate APKs instead of one,
@@ -210,9 +212,8 @@ dependencies {
 
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.0.0")
     implementation 'androidx.multidex:multidex:2.0.1'
-    implementation project(':react-native-contacts')
-    implementation project(':react-native-share')
-    
+    implementation project(':react-native-config')
+
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}")
     debugImplementation("com.facebook.flipper:flipper-network-plugin:${FLIPPER_VERSION}") {
         exclude group:'com.squareup.okhttp3', module:'okhttp'

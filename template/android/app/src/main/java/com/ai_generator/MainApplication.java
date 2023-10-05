@@ -10,6 +10,7 @@ import com.facebook.react.defaults.DefaultReactNativeHost;
 import com.facebook.soloader.SoLoader;
 import java.util.List;
 import androidx.multidex.MultiDexApplication;
+import com.lugg.RNCConfig.RNCConfigPackage;
 // import io.invertase.firebase.remoteConfig.ReactNativeFirebaseRemoteConfigPackage;
 
 public class MainApplication extends MultiDexApplication implements ReactApplication {
@@ -28,6 +29,7 @@ public class MainApplication extends MultiDexApplication implements ReactApplica
           // new ReactNativeFirebaseRemoteConfigPackage()
           // Packages that cannot be autolinked yet can be added manually here, for example:
           // packages.add(new MyReactNativePackage());
+          new RNCConfigPackage();
           return packages;
         }
 

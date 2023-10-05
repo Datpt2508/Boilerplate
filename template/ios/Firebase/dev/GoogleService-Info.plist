@@ -2,10 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>CLIENT_ID</key>
-	<string>693419658455-rub3onl74uus9c27o8go7itca5upnn0r.apps.googleusercontent.com</string>
-	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.693419658455-rub3onl74uus9c27o8go7itca5upnn0r</string>
 	<key>API_KEY</key>
 	<string>AIzaSyD9gu7A7zq33GcTw27VidsqWstQy_MbjJ8</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +9,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.triple.phone-tracker</string>
+	<string>om.phonetracker.gpslocation.phonelocation.dev</string>
 	<key>PROJECT_ID</key>
 	<string>phone-tracker-86ff0</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:693419658455:ios:2935239297b6b62fe7b492</string>
+	<string>1:693419658455:ios:b9dfa40f423c104ae7b492</string>
 </dict>
 </plist>
