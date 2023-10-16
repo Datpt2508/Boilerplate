@@ -122,7 +122,7 @@ android {
         applicationId "com.phonetracker.gpslocation.phonelocation"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 3
+        versionCode 1
         versionName "1.0"
         missingDimensionStrategy ('store', 'play') 
         missingDimensionStrategy 'react-native-camera', 'general'
@@ -176,7 +176,7 @@ android {
         stg {
             // Please block next line when using build with Android Studio.
             // applicationIdSuffix ".stg"
-            resValue "string", "app_name", "Phone Tracker (Stg)"
+            resValue "string", "app_name", "Phone Tracker"
             copy {
             from 'src/stg/'
             include '*.json'
@@ -232,6 +232,7 @@ dependencies {
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.0.0")
     implementation 'androidx.multidex:multidex:2.0.1'
     implementation project(':react-native-config')
+    implementation project(':react-native-push-notification')
 
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}")
     debugImplementation("com.facebook.flipper:flipper-network-plugin:${FLIPPER_VERSION}") {
