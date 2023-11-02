@@ -22,7 +22,8 @@ project.ext.react = [
     // bundleIndevRelease: false,
     // bundleInprodRelease: true,
     bundleInDebug: true,
-    enableHermes: true  
+    enableHermes: true,
+    deleteDebugFilesForVariant: { false }  
 ]
 
 apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"

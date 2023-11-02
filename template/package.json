@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-     "setDevelopment": "ENVFILE=.env.dev",
+    "setDevelopment": "ENVFILE=.env.dev",
     "setStaging": "ENVFILE=.env.stg",
     "setProduction": "ENVFILE=.env",
     "android:dev": "yarn setDevelopment react-native run-android --variant=devDebug --appIdSuffix=dev",
@@ -20,7 +20,9 @@
     "run-clear": "rm -rf node_modules; watchman watch-del-all; rm -rf /tmp/metro-*; yarn && npx pod-install; yarn start --reset-cache",
     "clean": "react-native clean-project",
     "postinstall": "patch-package",
-    "extract-translation": "node scripts/extract-translation"
+    "extract-translation": "node scripts/extract-translation",
+    "check-dependencies": "rnx-align-deps",
+    "fix-dependencies": "rnx-align-deps --write"
   },
   "reactNativePermissionsIOS": [
     "AppTrackingTransparency",
@@ -52,7 +54,7 @@
     "@vlzh/react-modal-manager": "^2.0.0-alpha.4",
     "axios": "^1.4.0",
     "deprecated-react-native-prop-types": "^4.2.1",
-    "i18next": "^22.5.0",
+    "i18next": "^23.5.1",
     "lottie-ios": "3.4.0",
     "lottie-react-native": "^5.1.6",
     "moment": "^2.29.4",
@@ -108,6 +110,7 @@
     "@babel/preset-env": "^7.20.0",
     "@babel/runtime": "^7.20.0",
     "@react-native-community/eslint-config": "^3.2.0",
+    "@rnx-kit/align-deps": "^2.2.5",
     "@trivago/prettier-plugin-sort-imports": "^4.1.1",
     "@tsconfig/react-native": "^2.0.2",
     "@types/jest": "^29.2.1",
