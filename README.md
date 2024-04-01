@@ -1,7 +1,7 @@
 
 # Application
 - How to using the boilerplate
-
+npx react-native@latest init ProjectName --template https://github.com/Datpt2508/Boilerplate
 
 ## Code structure
 
